@@ -1,0 +1,128 @@
+app_group:
+  - read:
+      path: /apps/pagers.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: PATCH
+  - update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: DELETE
+  - delete:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.pagers.v1alpha1.cluster_pager:
+  - create:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+      method: POST
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: GET
+  - update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: PUT
+
+com.nokia.eda.pagers.v1alpha1.cluster_pager_list:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+      method: GET
+  - delete:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+      method: DELETE
+
+com.nokia.eda.pagers.v1alpha1.cluster_pager_deleted_resources:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/_deleted
+      method: GET
+
+com.nokia.eda.pagers.v1alpha1.pager:
+  - create:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+      method: POST
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: GET
+  - update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: PUT
+
+com.nokia.eda.pagers.v1alpha1.pager_list:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+      method: GET
+  - delete:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+      method: DELETE
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/pagers
+      method: GET
+
+com.nokia.eda.pagers.v1alpha1.pager_deleted_resources:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/_deleted
+      method: GET
+
+totalPaths: 14
+totalSchemas: 38
+usedSchemas: 13
+unusedSchemas: 25
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - com.nokia.eda.pagers.v1alpha1.ClusterPager_DeletedResourceEntry
+  - com.nokia.eda.pagers.v1alpha1.ClusterPager_metadata
+  - com.nokia.eda.pagers.v1alpha1.Pager_DeletedResourceEntry
+  - com.nokia.eda.pagers.v1alpha1.Pager_metadata

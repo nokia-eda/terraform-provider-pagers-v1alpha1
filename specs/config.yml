@@ -1,0 +1,62 @@
+provider:
+  name: pagers
+
+data_sources:
+  app_group:
+    read:
+      path: /apps/pagers.eda.nokia.com
+      method: GET
+
+  cluster_pager:
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: GET
+
+  cluster_pager_list:
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+      method: GET
+
+  pager:
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: GET
+
+  pager_list:
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1
+      method: GET
+
+resources:
+  cluster_pager:
+    create:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+      method: POST
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: GET
+    update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: PUT
+    delete:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: DELETE
+
+  pager:
+    create:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+      method: POST
+    read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: GET
+    update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: PUT
+    delete:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: DELETE

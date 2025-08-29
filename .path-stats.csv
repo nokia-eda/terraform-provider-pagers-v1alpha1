@@ -1,0 +1,25 @@
+Path,Method,Schema,Model Name,Supported,Datasource,Resource
+/apps/pagers.eda.nokia.com,GET,AppGroup,app_group,true,true,false
+/apps/pagers.eda.nokia.com/v1alpha1,GET,ResourceList,resource_list,true,true,false
+/apps/pagers.eda.nokia.com/v1alpha1/_ui/{pathname},GET,UIResult,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers,DELETE,com.nokia.eda.pagers.v1alpha1.ClusterPagerList,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers,GET,com.nokia.eda.pagers.v1alpha1.ClusterPagerList,cluster_pager_list,true,true,false
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers,POST,com.nokia.eda.pagers.v1alpha1.ClusterPager,cluster_pager,true,false,true
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/_deleted,GET,com.nokia.eda.pagers.v1alpha1.ClusterPager_DeletedResources,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name},DELETE,Status,cluster_pager,true,false,true
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name},GET,com.nokia.eda.pagers.v1alpha1.ClusterPager,cluster_pager,true,true,true
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name},PATCH,Patch,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name},PUT,com.nokia.eda.pagers.v1alpha1.ClusterPager,cluster_pager,true,false,true
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers,DELETE,com.nokia.eda.pagers.v1alpha1.PagerList,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers,GET,com.nokia.eda.pagers.v1alpha1.PagerList,pager_list,true,true,false
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers,POST,com.nokia.eda.pagers.v1alpha1.Pager,pager,true,false,true
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/_deleted,GET,com.nokia.eda.pagers.v1alpha1.Pager_DeletedResources,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name},DELETE,Status,pager,true,false,true
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name},GET,com.nokia.eda.pagers.v1alpha1.Pager,pager,true,true,true
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name},PATCH,Patch,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name},PUT,com.nokia.eda.pagers.v1alpha1.Pager,pager,true,false,true
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/pagers.eda.nokia.com/v1alpha1/pagers,GET,com.nokia.eda.pagers.v1alpha1.PagerList,,false,false,false
