@@ -19,14 +19,6 @@ k8_s_topology_request:
       path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}/_topology
       method: POST
 
-patch:
-  - update:
-      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
-      method: PATCH
-  - update:
-      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
-      method: PATCH
-
 resource_history:
   - read:
       path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_revs
@@ -71,6 +63,9 @@ com.nokia.eda.pagers.v1alpha1.cluster_pager:
   - update:
       path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
       method: PUT
+  - update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+      method: PATCH
 
 com.nokia.eda.pagers.v1alpha1.cluster_pager_list:
   - read:
@@ -95,6 +90,9 @@ com.nokia.eda.pagers.v1alpha1.pager:
   - update:
       path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
       method: PUT
+  - update:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+      method: PATCH
 
 com.nokia.eda.pagers.v1alpha1.pager_list:
   - read:
@@ -114,8 +112,8 @@ com.nokia.eda.pagers.v1alpha1.pager_deleted_resources:
 
 totalPaths: 16
 totalSchemas: 61
-usedSchemas: 15
-unusedSchemas: 46
+usedSchemas: 14
+unusedSchemas: 47
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
@@ -124,6 +122,7 @@ unusedSchemaList:
   - IntentTarget
   - K8SPatchOp
   - OverlayState
+  - Patch
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
