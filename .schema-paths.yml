@@ -32,6 +32,14 @@ resource_list:
       path: /apps/pagers.eda.nokia.com/v1alpha1
       method: GET
 
+resource_topology:
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}/_topology
+      method: GET
+
 status:
   - delete:
       path: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
@@ -103,11 +111,13 @@ com.nokia.eda.pagers.v1alpha1.pager_deleted_resources:
       method: GET
 
 totalPaths: 16
-totalSchemas: 59
-usedSchemas: 13
-unusedSchemas: 46
+totalSchemas: 61
+usedSchemas: 14
+unusedSchemas: 47
 unusedSchemaList:
   - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
   - ErrorResponse
   - IntentTarget
   - K8SPatchOp
@@ -115,7 +125,6 @@ unusedSchemaList:
   - Patch
   - Resource
   - ResourceHistoryEntry
-  - ResourceTopology
   - StatusDetails
   - TopoAttrMetadata
   - TopoAttribute
