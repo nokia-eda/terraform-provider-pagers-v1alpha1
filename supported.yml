@@ -1,0 +1,41 @@
+datasources:
+  - model_name: app_group
+    oas_endpoint: /apps/pagers.eda.nokia.com
+    oas_schema: AppGroup
+  - model_name: resource_list
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1
+    oas_schema: ResourceList
+  - model_name: cluster_pager_list
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+    oas_schema: com.nokia.eda.pagers.v1alpha1.ClusterPagerList
+  - model_name: cluster_pager
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}
+    oas_schema: com.nokia.eda.pagers.v1alpha1.ClusterPager
+  - model_name: pager_list
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+    oas_schema: com.nokia.eda.pagers.v1alpha1.PagerList
+  - model_name: pager
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/{name}
+    oas_schema: com.nokia.eda.pagers.v1alpha1.Pager
+
+resources:
+  - model_name: cluster_pager
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers
+    oas_schema: com.nokia.eda.pagers.v1alpha1.ClusterPager
+  - model_name: pager
+    oas_endpoint: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers
+    oas_schema: com.nokia.eda.pagers.v1alpha1.Pager
+
+qualified:
+  datasources:
+    - oas_schema: IntentTargets
+      get: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_targets
+    - oas_schema: ResourceHistory
+      get: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/{name}/_revs
+    - oas_schema: UIResult
+      get: /apps/pagers.eda.nokia.com/v1alpha1/_ui/{pathname}
+    - oas_schema: com.nokia.eda.pagers.v1alpha1.ClusterPager_DeletedResources
+      get: /apps/pagers.eda.nokia.com/v1alpha1/clusterpagers/_deleted
+    - oas_schema: com.nokia.eda.pagers.v1alpha1.Pager_DeletedResources
+      get: /apps/pagers.eda.nokia.com/v1alpha1/namespaces/{namespace}/pagers/_deleted
+  resources:
