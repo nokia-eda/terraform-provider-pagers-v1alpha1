@@ -22,7 +22,6 @@ description: |-
 ### Optional
 
 - `hash` (String) resource content will be returned as it was at the time of this git hash
-- `spec` (Attributes) ClusterPagerSpec defines the desired state of ClusterPager (see [below for nested schema](#nestedatt--spec))
 
 ### Read-Only
 
@@ -31,70 +30,8 @@ description: |-
 - `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
+- `spec` (Attributes) ClusterPagerSpec defines the desired state of ClusterPager (see [below for nested schema](#nestedatt--spec))
 - `status` (Attributes) ClusterPagerStatus defines the observed state of ClusterPager (see [below for nested schema](#nestedatt--status))
-
-<a id="nestedatt--spec"></a>
-### Nested Schema for `spec`
-
-Optional:
-
-- `description` (String) The pager description
-- `routing_key_secret` (String) A reference to the Secret holding the Pager Duty routing key to use when raising events from this pager.
-The routing key must be base64 encoded and set under data.key.
-The secret reference follows the format `$namespace/$secretName`, if the namespace is omitted, the pager namespace is used.
-- `sources` (Attributes) Set the Pager sources (see [below for nested schema](#nestedatt--spec--sources))
-
-<a id="nestedatt--spec--sources"></a>
-### Nested Schema for `spec.sources`
-
-Optional:
-
-- `alarms` (Attributes) Include alarm sources in this pager (see [below for nested schema](#nestedatt--spec--sources--alarms))
-- `query` (Attributes) Include a query source in this pager (see [below for nested schema](#nestedatt--spec--sources--query))
-
-<a id="nestedatt--spec--sources--alarms"></a>
-### Nested Schema for `spec.sources.alarms`
-
-Optional:
-
-- `auto_resolve` (Boolean) If true this app will automatically change the event status from triggered to resolved when the alarm is cleared.
-- `exclude` (List of String) A list of alarms that this Pager will ignore, matching the 'type' field within alarms.
-If a source matches both the 'includes' and 'excludes' lists, it will be excluded.
-For example, 'InterfaceMemberDown'.
-- `include` (List of String) A list of alarms that this Pager will listen to, matching the 'type' field within alarms.
-For example, 'InterfaceDown'.
-- `namespaces` (List of String) Namespaces to consider when selecting alarms for this Pager.
-Alarms from these namespaces will be either included or excluded based on the other filters.
-
-
-<a id="nestedatt--spec--sources--query"></a>
-### Nested Schema for `spec.sources.query`
-
-Optional:
-
-- `auto_resolve` (Boolean) If true this app will automatically change the event status from triggered to resolved when the object is deleted.
-- `class` (String) A template to use as class when sending the event to Pager Duty.
-The template can use the fields from the subscription results.
-- `component` (String) A template to use as component when sending the event to Pager Duty.
-The template can use the fields from the subscription results.
-- `fields` (List of String) Fields to include in the subscribe results, which can then be used in the template,
-e.g. '.node.name' or '.node.srl.interface.name"'.
-- `group` (String) A template to use as group when sending the event to Pager Duty.
-The template can use the fields from the subscription results.
-- `include_details` (Boolean) If true the query response is included in the generated event 'custom_details' field
-- `severity` (String) A template to use as severity when sending the event to Pager Duty.
-The template can use the fields from the subscription results.
-Must be one of critical , error , warning  or info.
-- `source` (String) A template to use as source when sending the event to Pager Duty.
-The template can use the fields from the subscription results.
-- `summary` (String) A template to use as summary when sending the event to Pager Duty.
-The template can use the fields from the subscription results.
-e.g. 'Interface {{.node.srl.interface.name}} is down on node {{.node.name}}'.
-- `table` (String) EDB table to subscribe to. e.g. '.namespace.node.srl.interface'
-- `where` (String) A where clause to use for the subscribe request, e.g: 'oper-state = down'. You can omit enclosing parentheses.
-
-
-
 
 <a id="nestedatt--alarms"></a>
 ### Nested Schema for `alarms`
@@ -124,6 +61,69 @@ Read-Only:
 - `labels` (Map of String)
 - `name` (String)
 - `namespace` (String)
+
+
+<a id="nestedatt--spec"></a>
+### Nested Schema for `spec`
+
+Read-Only:
+
+- `description` (String) The pager description
+- `routing_key_secret` (String) A reference to the Secret holding the Pager Duty routing key to use when raising events from this pager.
+The routing key must be base64 encoded and set under data.key.
+The secret reference follows the format `$namespace/$secretName`, if the namespace is omitted, the pager namespace is used.
+- `sources` (Attributes) Set the Pager sources (see [below for nested schema](#nestedatt--spec--sources))
+
+<a id="nestedatt--spec--sources"></a>
+### Nested Schema for `spec.sources`
+
+Read-Only:
+
+- `alarms` (Attributes) Include alarm sources in this pager (see [below for nested schema](#nestedatt--spec--sources--alarms))
+- `query` (Attributes) Include a query source in this pager (see [below for nested schema](#nestedatt--spec--sources--query))
+
+<a id="nestedatt--spec--sources--alarms"></a>
+### Nested Schema for `spec.sources.alarms`
+
+Read-Only:
+
+- `auto_resolve` (Boolean) If true this app will automatically change the event status from triggered to resolved when the alarm is cleared.
+- `exclude` (List of String) A list of alarms that this Pager will ignore, matching the 'type' field within alarms.
+If a source matches both the 'includes' and 'excludes' lists, it will be excluded.
+For example, 'InterfaceMemberDown'.
+- `include` (List of String) A list of alarms that this Pager will listen to, matching the 'type' field within alarms.
+For example, 'InterfaceDown'.
+- `namespaces` (List of String) Namespaces to consider when selecting alarms for this Pager.
+Alarms from these namespaces will be either included or excluded based on the other filters.
+
+
+<a id="nestedatt--spec--sources--query"></a>
+### Nested Schema for `spec.sources.query`
+
+Read-Only:
+
+- `auto_resolve` (Boolean) If true this app will automatically change the event status from triggered to resolved when the object is deleted.
+- `class` (String) A template to use as class when sending the event to Pager Duty.
+The template can use the fields from the subscription results.
+- `component` (String) A template to use as component when sending the event to Pager Duty.
+The template can use the fields from the subscription results.
+- `fields` (List of String) Fields to include in the subscribe results, which can then be used in the template,
+e.g. '.node.name' or '.node.srl.interface.name"'.
+- `group` (String) A template to use as group when sending the event to Pager Duty.
+The template can use the fields from the subscription results.
+- `include_details` (Boolean) If true the query response is included in the generated event 'custom_details' field
+- `severity` (String) A template to use as severity when sending the event to Pager Duty.
+The template can use the fields from the subscription results.
+Must be one of critical , error , warning  or info.
+- `source` (String) A template to use as source when sending the event to Pager Duty.
+The template can use the fields from the subscription results.
+- `summary` (String) A template to use as summary when sending the event to Pager Duty.
+The template can use the fields from the subscription results.
+e.g. 'Interface {{.node.srl.interface.name}} is down on node {{.node.name}}'.
+- `table` (String) EDB table to subscribe to. e.g. '.namespace.node.srl.interface'
+- `where` (String) A where clause to use for the subscribe request, e.g: 'oper-state = down'. You can omit enclosing parentheses.
+
+
 
 
 <a id="nestedatt--status"></a>

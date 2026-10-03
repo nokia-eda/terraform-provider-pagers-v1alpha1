@@ -122,6 +122,7 @@ func ClusterPagerResourceSchema(ctx context.Context) schema.Schema {
 				Attributes: map[string]schema.Attribute{
 					"description": schema.StringAttribute{
 						Optional:            true,
+						Computed:            true,
 						Description:         "The pager description",
 						MarkdownDescription: "The pager description",
 					},
@@ -136,24 +137,28 @@ func ClusterPagerResourceSchema(ctx context.Context) schema.Schema {
 								Attributes: map[string]schema.Attribute{
 									"auto_resolve": schema.BoolAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "If true this app will automatically change the event status from triggered to resolved when the alarm is cleared.",
 										MarkdownDescription: "If true this app will automatically change the event status from triggered to resolved when the alarm is cleared.",
 									},
 									"exclude": schema.ListAttribute{
 										ElementType:         types.StringType,
 										Optional:            true,
+										Computed:            true,
 										Description:         "A list of alarms that this Pager will ignore, matching the 'type' field within alarms.\nIf a source matches both the 'includes' and 'excludes' lists, it will be excluded.\nFor example, 'InterfaceMemberDown'.",
 										MarkdownDescription: "A list of alarms that this Pager will ignore, matching the 'type' field within alarms.\nIf a source matches both the 'includes' and 'excludes' lists, it will be excluded.\nFor example, 'InterfaceMemberDown'.",
 									},
 									"include": schema.ListAttribute{
 										ElementType:         types.StringType,
 										Optional:            true,
+										Computed:            true,
 										Description:         "A list of alarms that this Pager will listen to, matching the 'type' field within alarms.\nFor example, 'InterfaceDown'.",
 										MarkdownDescription: "A list of alarms that this Pager will listen to, matching the 'type' field within alarms.\nFor example, 'InterfaceDown'.",
 									},
 									"namespaces": schema.ListAttribute{
 										ElementType:         types.StringType,
 										Optional:            true,
+										Computed:            true,
 										Description:         "Namespaces to consider when selecting alarms for this Pager.\nAlarms from these namespaces will be either included or excluded based on the other filters.",
 										MarkdownDescription: "Namespaces to consider when selecting alarms for this Pager.\nAlarms from these namespaces will be either included or excluded based on the other filters.",
 									},
@@ -164,6 +169,7 @@ func ClusterPagerResourceSchema(ctx context.Context) schema.Schema {
 									},
 								},
 								Optional:            true,
+								Computed:            true,
 								Description:         "Include alarm sources in this pager",
 								MarkdownDescription: "Include alarm sources in this pager",
 							},
@@ -171,57 +177,68 @@ func ClusterPagerResourceSchema(ctx context.Context) schema.Schema {
 								Attributes: map[string]schema.Attribute{
 									"auto_resolve": schema.BoolAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "If true this app will automatically change the event status from triggered to resolved when the object is deleted.",
 										MarkdownDescription: "If true this app will automatically change the event status from triggered to resolved when the object is deleted.",
 									},
 									"class": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A template to use as class when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 										MarkdownDescription: "A template to use as class when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 									},
 									"component": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A template to use as component when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 										MarkdownDescription: "A template to use as component when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 									},
 									"fields": schema.ListAttribute{
 										ElementType:         types.StringType,
 										Optional:            true,
+										Computed:            true,
 										Description:         "Fields to include in the subscribe results, which can then be used in the template,\ne.g. '.node.name' or '.node.srl.interface.name\"'.",
 										MarkdownDescription: "Fields to include in the subscribe results, which can then be used in the template,\ne.g. '.node.name' or '.node.srl.interface.name\"'.",
 									},
 									"group": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A template to use as group when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 										MarkdownDescription: "A template to use as group when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 									},
 									"include_details": schema.BoolAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "If true the query response is included in the generated event 'custom_details' field",
 										MarkdownDescription: "If true the query response is included in the generated event 'custom_details' field",
 									},
 									"severity": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A template to use as severity when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.\nMust be one of critical , error , warning  or info.",
 										MarkdownDescription: "A template to use as severity when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.\nMust be one of critical , error , warning  or info.",
 									},
 									"source": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A template to use as source when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 										MarkdownDescription: "A template to use as source when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.",
 									},
 									"summary": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A template to use as summary when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.\ne.g. 'Interface {{.node.srl.interface.name}} is down on node {{.node.name}}'.",
 										MarkdownDescription: "A template to use as summary when sending the event to Pager Duty.\nThe template can use the fields from the subscription results.\ne.g. 'Interface {{.node.srl.interface.name}} is down on node {{.node.name}}'.",
 									},
 									"table": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "EDB table to subscribe to. e.g. '.namespace.node.srl.interface'",
 										MarkdownDescription: "EDB table to subscribe to. e.g. '.namespace.node.srl.interface'",
 									},
 									"where": schema.StringAttribute{
 										Optional:            true,
+										Computed:            true,
 										Description:         "A where clause to use for the subscribe request, e.g: 'oper-state = down'. You can omit enclosing parentheses.",
 										MarkdownDescription: "A where clause to use for the subscribe request, e.g: 'oper-state = down'. You can omit enclosing parentheses.",
 									},
@@ -232,6 +249,7 @@ func ClusterPagerResourceSchema(ctx context.Context) schema.Schema {
 									},
 								},
 								Optional:            true,
+								Computed:            true,
 								Description:         "Include a query source in this pager",
 								MarkdownDescription: "Include a query source in this pager",
 							},
